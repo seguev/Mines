@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60B3E1132B52F62700518AD4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E1122B52F62700518AD4 /* Model.swift */; };
 		60F10C692B519E7200597813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C682B519E7200597813 /* AppDelegate.swift */; };
 		60F10C6B2B519E7200597813 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C6A2B519E7200597813 /* SceneDelegate.swift */; };
 		60F10C6D2B519E7200597813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C6C2B519E7200597813 /* ViewController.swift */; };
@@ -14,9 +15,11 @@
 		60F10C732B519E7200597813 /* Mines.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C712B519E7200597813 /* Mines.xcdatamodeld */; };
 		60F10C752B519E7300597813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F10C742B519E7300597813 /* Assets.xcassets */; };
 		60F10C782B519E7300597813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F10C762B519E7300597813 /* LaunchScreen.storyboard */; };
+		60F10C802B519EC100597813 /* LandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C7F2B519EC100597813 /* LandView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60B3E1122B52F62700518AD4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		60F10C652B519E7200597813 /* Mines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F10C682B519E7200597813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F10C6A2B519E7200597813 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		60F10C742B519E7300597813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60F10C772B519E7300597813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60F10C792B519E7300597813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60F10C7F2B519EC100597813 /* LandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				60F10C682B519E7200597813 /* AppDelegate.swift */,
 				60F10C6A2B519E7200597813 /* SceneDelegate.swift */,
 				60F10C6C2B519E7200597813 /* ViewController.swift */,
+				60B3E1122B52F62700518AD4 /* Model.swift */,
+				60F10C7F2B519EC100597813 /* LandView.swift */,
 				60F10C6E2B519E7200597813 /* Main.storyboard */,
 				60F10C742B519E7300597813 /* Assets.xcassets */,
 				60F10C762B519E7300597813 /* LaunchScreen.storyboard */,
@@ -143,6 +149,8 @@
 			files = (
 				60F10C6D2B519E7200597813 /* ViewController.swift in Sources */,
 				60F10C692B519E7200597813 /* AppDelegate.swift in Sources */,
+				60F10C802B519EC100597813 /* LandView.swift in Sources */,
+				60B3E1132B52F62700518AD4 /* Model.swift in Sources */,
 				60F10C732B519E7200597813 /* Mines.xcdatamodeld in Sources */,
 				60F10C6B2B519E7200597813 /* SceneDelegate.swift in Sources */,
 			);
@@ -299,11 +307,12 @@
 				DEVELOPMENT_TEAM = TAJ6K5RR87;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mines/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +320,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.seguev.Mines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,11 +340,12 @@
 				DEVELOPMENT_TEAM = TAJ6K5RR87;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mines/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,9 +353,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.seguev.Mines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

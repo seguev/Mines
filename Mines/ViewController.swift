@@ -9,11 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let model = Model()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        model.populateView(view)
+        view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(revealAll)))
     }
-
-
+    
+    @objc private func revealAll() {
+        model.revealAll(in: view)
+    }
+    
+    
+    
 }
 
