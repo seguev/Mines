@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60B3E1132B52F62700518AD4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E1122B52F62700518AD4 /* Model.swift */; };
+		60B3E1152B531EF100518AD4 /* MineGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E1142B531EF100518AD4 /* MineGrid.swift */; };
 		60F10C692B519E7200597813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C682B519E7200597813 /* AppDelegate.swift */; };
 		60F10C6B2B519E7200597813 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C6A2B519E7200597813 /* SceneDelegate.swift */; };
 		60F10C6D2B519E7200597813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F10C6C2B519E7200597813 /* ViewController.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60B3E1122B52F62700518AD4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		60B3E1142B531EF100518AD4 /* MineGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineGrid.swift; sourceTree = "<group>"; };
 		60F10C652B519E7200597813 /* Mines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F10C682B519E7200597813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F10C6A2B519E7200597813 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +65,8 @@
 				60F10C682B519E7200597813 /* AppDelegate.swift */,
 				60F10C6A2B519E7200597813 /* SceneDelegate.swift */,
 				60F10C6C2B519E7200597813 /* ViewController.swift */,
-				60B3E1122B52F62700518AD4 /* Model.swift */,
 				60F10C7F2B519EC100597813 /* LandView.swift */,
+				60B3E1142B531EF100518AD4 /* MineGrid.swift */,
 				60F10C6E2B519E7200597813 /* Main.storyboard */,
 				60F10C742B519E7300597813 /* Assets.xcassets */,
 				60F10C762B519E7300597813 /* LaunchScreen.storyboard */,
@@ -147,10 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B3E1152B531EF100518AD4 /* MineGrid.swift in Sources */,
 				60F10C6D2B519E7200597813 /* ViewController.swift in Sources */,
 				60F10C692B519E7200597813 /* AppDelegate.swift in Sources */,
 				60F10C802B519EC100597813 /* LandView.swift in Sources */,
-				60B3E1132B52F62700518AD4 /* Model.swift in Sources */,
 				60F10C732B519E7200597813 /* Mines.xcdatamodeld in Sources */,
 				60F10C6B2B519E7200597813 /* SceneDelegate.swift in Sources */,
 			);

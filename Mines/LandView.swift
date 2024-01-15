@@ -12,17 +12,15 @@ protocol LandViewDelegate {
 }
 
 class LandView: UIView {
-    var up: LandView?
-    var down: LandView?
-    var left: LandView?
-    var right: LandView?
     var deleagte: LandViewDelegate?
     var isRevealed: Bool = false
     
-    var data: LandViewData {
-        didSet {
-            let n = fetchNumber()
-            numLabel.text = n?.description
+    var data: LandViewData
+    
+    func add() {
+        if var n = fetchNumber() {
+            n += 1
+            data = .number(n)
         }
     }
     
@@ -35,12 +33,13 @@ class LandView: UIView {
         return label
     }()
     
-    init(up: LandView? = nil, down: LandView? = nil, left: LandView? = nil, right: LandView? = nil, data: LandViewData = .number(0), origin:CGPoint,size:CGSize = .init(width: 35, height: 35)) {
-        self.up = up
-        self.down = down
-        self.left = left
-        self.right = right
-        self.data = data
+    init( origin:CGPoint,size:CGSize = .init(width: 35, height: 35),mineFactor:Int = 3) {
+        if Int.random(in: 0..<mineFactor) == 0 {
+            self.data = .mine
+        } else {
+            self.data = .number(0)
+        }
+        
         super.init(frame: .init(origin: origin, size: size))
         self.addTapGesture()
         self.addSubview(numLabel)
@@ -68,10 +67,10 @@ class LandView: UIView {
                 deleagte?.loseGame()
                 backgroundColor = .red
                 numLabel.text = "💣"
-                
             } else {
                 backgroundColor = .systemGray6
-                data = .number(0)
+                numLabel.text = fetchNumber()?.description
+                
             }
         } 
     }
@@ -82,9 +81,7 @@ class LandView: UIView {
         self.layer.borderColor = UIColor.systemGray2.cgColor
         self.layer.borderWidth = 1
     }
-    
-
-    
+        
     func fetchNumber() -> Int? {
         switch self.data {
         case .number(let int):

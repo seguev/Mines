@@ -9,19 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let model = Model()
+    var grid: MineGrid?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.populateView(view)
         view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(revealAll)))
+        grid = MineGrid(rows: 10, columns: 10,to: view)
+        grid?.addToView(view)
     }
     
     @objc private func revealAll() {
-        model.revealAll(in: view)
+        grid?.revealAll()
     }
     
     
     
 }
+
 
