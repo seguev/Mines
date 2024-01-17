@@ -7,12 +7,9 @@
 
 import UIKit
 
-protocol LandViewDelegate {
-    func loseGame()
-}
 
 class LandView: UIView {
-    var deleagte: LandViewDelegate?
+    let grid: MineGrid
     var isRevealed: Bool = false
     
     var data: LandViewData
@@ -33,13 +30,13 @@ class LandView: UIView {
         return label
     }()
     
-    init( origin:CGPoint,size:CGSize = .init(width: 35, height: 35),mineFactor:Int = 3) {
+    init( origin:CGPoint,size:CGSize = .init(width: 35, height: 35),mineFactor:Int = 3, grid:MineGrid) {
         if Int.random(in: 0..<mineFactor) == 0 {
             self.data = .mine
         } else {
             self.data = .number(0)
         }
-        
+        self.grid = grid
         super.init(frame: .init(origin: origin, size: size))
         self.addTapGesture()
         self.addSubview(numLabel)
@@ -64,7 +61,6 @@ class LandView: UIView {
             isRevealed = true
             //mine?
             if data == .mine {
-                deleagte?.loseGame()
                 backgroundColor = .red
                 numLabel.text = "💣"
             } else {
@@ -72,8 +68,13 @@ class LandView: UIView {
                 numLabel.text = fetchNumber()?.description
                 
             }
-        } 
+        }
+        
     }
+    
+    
+    
+    
     
     private func setInitialAppearance() {
         self.layer.cornerRadius = 5
