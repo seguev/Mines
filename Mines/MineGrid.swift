@@ -6,8 +6,17 @@
 //
 
 import UIKit
+protocol GridDelegate {
+    func gameOver()
+    func newGame()
+    func gameWon()
+    var grid: MineGrid? { get set }
+}
 
 class MineGrid {
+    
+    var delegate: GridDelegate?
+    
     var grid: [[LandView]] = []
     private let width: CGFloat = 35
     
@@ -17,7 +26,12 @@ class MineGrid {
             for j in 0..<columns {
                 let point: CGPoint = .init(x: CGFloat(i) * width + gridOrigin.x,
                                            y: CGFloat(j) * width + gridOrigin.y)
-                row.append(LandView(origin: point,grid: self))
+
+                row.append(LandView(origin: point,
+                                    mineFactor: 6,
+                                    grid: self,
+                                    coordinates: (i,j)
+                                   ))
             }
             grid.append(row)
         }
@@ -113,6 +127,7 @@ class MineGrid {
 //        }
 //    }
     
+    #warning("split to 2 functions. the current state only apply to mines!")
     func forAllOfTheGrid(do mineHundler:(_ surroundingView:LandView,_ currentCell:LandView)->Void) {
         let rows = grid.count
         let columns = grid.first?.count ?? 0
@@ -125,11 +140,10 @@ class MineGrid {
                     for j in -1...1 {
                         let x = m + i
                         let y = n + j
-
+                        
                         if x >= 0 && x < columns && y >= 0 && y < rows {
                             if grid[y][x].data == .mine {
                                let surroundingView = grid[y][x]
-
                                 mineHundler(surroundingView, currentCell)
                             }
                         }
@@ -139,31 +153,10 @@ class MineGrid {
         }
     }
     
-    ;#warning("Continue from here")
-    //TODO: this should take indecies and only look for serrounding views, not all of the grid
-    func forEachSurroundingView(of:LandView,do mineHundler:(_ surroundingView:LandView,_ currentCell:LandView)->Void) {
-        let rows = grid.count
-        let columns = grid.first?.count ?? 0
-
-        for n in 0..<rows {
-            for m in 0..<columns {
-                let currentCell = grid[n][m]
-
-                for i in -1...1 {
-                    for j in -1...1 {
-                        let x = m + i
-                        let y = n + j
-
-                        if x >= 0 && x < columns && y >= 0 && y < rows {
-                            if grid[y][x].data == .mine {
-                               let surroundingView = grid[y][x]
-                                let currentView = currentCell
-                                mineHundler(surroundingView, currentCell)
-                            }
-                        }
-                    }
-                }
-            }
+    
+    func checkIfWon() {
+        forAllOfTheGrid { surroundingView, currentCell in
+            surroundingView.backgroundColor = .purple
         }
     }
     
@@ -174,35 +167,6 @@ class MineGrid {
             }
         }
     }
-    
-    
-    
-//    func populateGrid() {
-//        let rows = grid.count
-//        let columns = grid.first?.count ?? 0
-//
-//        for n in 0..<rows {
-//            for m in 0..<columns {
-//                let currentCell = grid[n][m]
-//
-//                for i in -1...1 {
-//                    for j in -1...1 {
-//                        let x = m + i
-//                        let y = n + j
-//
-//                        if x >= 0 && x < columns && y >= 0 && y < rows {
-//                            if grid[y][x].data == .mine {
-//                                currentCell.add()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    
-
     
     init(rows:Int,columns:Int,to view:UIView) {
         let origin = fetchOrigin(inRelationFor: view,rows: rows,columns: columns)
